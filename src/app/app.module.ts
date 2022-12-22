@@ -11,6 +11,7 @@ import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { ShoppingEditComponent } from './shopping/shopping-edit/shopping-edit.component';
 import { FormsModule } from '@angular/forms';
 import { DrodownDirective } from './shared/drodown.directive';
+import { ShoppingListService } from './shopping-list/shopping-list.service';
 
 @NgModule({
   declarations: [
@@ -28,7 +29,7 @@ import { DrodownDirective } from './shared/drodown.directive';
     BrowserModule,
     FormsModule
   ],
-  providers: [],
+  providers: [ShoppingListService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
