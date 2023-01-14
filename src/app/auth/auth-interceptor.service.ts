@@ -17,10 +17,11 @@ export class AuthInterceptorService implements HttpInterceptor {
     return this.store.select('auth').pipe(
       take(1),
       map(authState => {
+        console.log(authState);
         return authState.user;
       }),
       exhaustMap(user => {
-
+        console.log(user);
       if (!user){
         return next.handle(req);
       }

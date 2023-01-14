@@ -124,7 +124,8 @@ export class AuthEffects {
       tap((authSuccessAction: AuthActions.AuthenticateSuccess) => {
 
         if (authSuccessAction.payload.redirect){
-          this.router.navigate(['/']); }
+          this.router.navigate(['/']);
+        }
         })
     ),
     { dispatch: false }
@@ -163,6 +164,8 @@ export class AuthEffects {
           const expirationDuration = new Date(userData._tokenExpirationDate).getTime() -
                                      new Date().getTime();
           this.authService.setLogoutTimer(expirationDuration);
+
+          //console.log(loaderUser);
 
           return new AuthActions.AuthenticateSuccess({
             email: loaderUser.email,
